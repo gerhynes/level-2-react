@@ -1,6 +1,7 @@
 import React from "react";
 import Toggle from "./ToggleRPC";
 import Portal from "./Portal";
+import Modal from "./Modal";
 import "./App.css";
 
 function App() {
@@ -10,9 +11,10 @@ function App() {
         <Toggle>
           {({ on, toggle }) => (
             <>
-              {on && <h1>Now you see me</h1>}
-              <button onClick={toggle}>Show/Hide</button>
-              <Portal>{on && <h1>Hi, I'm in a Portal</h1>}</Portal>
+              <button onClick={toggle}>Login</button>
+              <Modal on={on} toggle={toggle}>
+                <h1>Hi from inside the Modal</h1>
+              </Modal>
             </>
           )}
         </Toggle>
