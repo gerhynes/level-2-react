@@ -1,5 +1,6 @@
 import React from "react";
 import Toggle from "./ToggleRPC";
+import Portal from "./Portal";
 import "./App.css";
 
 function App() {
@@ -8,10 +9,11 @@ function App() {
       <header className="App-header">
         <Toggle>
           {({ on, toggle }) => (
-            <div>
+            <>
               {on && <h1>Now you see me</h1>}
               <button onClick={toggle}>Show/Hide</button>
-            </div>
+              <Portal>{on && <h1>Hi, I'm in a Portal</h1>}</Portal>
+            </>
           )}
         </Toggle>
       </header>
