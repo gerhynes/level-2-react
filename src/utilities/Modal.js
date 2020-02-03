@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Portal from "./Portal";
-import Icon from "./utilities/Icon";
+import Icon from "./Icon";
 import styled from "styled-components";
 
 const ModalWrapper = styled.div`
