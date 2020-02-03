@@ -8,7 +8,36 @@ const ModalWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalCard = styled.div`
+  position: relative;
+  background: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  min-width: 320px;
+  box-shadow: 2px 2px 10px rbga(0, 0, 0, 0.3);
+  z-index: 10;
+  margin-bottom: 100px;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
 `;
 
 export default class Modal extends Component {
@@ -18,8 +47,11 @@ export default class Modal extends Component {
       <Portal>
         {on && (
           <ModalWrapper>
-            <button onClick={toggle}>Close</button>
-            <div>{children}</div>
+            <ModalCard>
+              <CloseButton onClick={toggle}>Close</CloseButton>
+              <div>{children}</div>
+            </ModalCard>
+            <Background onClick={toggle} />
           </ModalWrapper>
         )}
       </Portal>
