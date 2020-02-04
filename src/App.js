@@ -1,6 +1,6 @@
 import React from "react";
-import { Toggle, Portal, Modal } from "./utilities";
-
+import { Toggle } from "utilities";
+import { Modal } from "elements";
 import "./App.css";
 
 function App() {

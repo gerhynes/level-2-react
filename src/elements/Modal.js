@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Portal from "./Portal";
+import { Portal } from "utilities";
 import Icon from "./Icon";
+import { Card } from "./Cards";
 import styled from "styled-components";
 
 const ModalWrapper = styled.div`
@@ -14,14 +15,10 @@ const ModalWrapper = styled.div`
   align-items: center;
 `;
 
-const ModalCard = styled.div`
+const ModalCard = styled(Card)`
   position: relative;
-  background: #fff;
-  border-radius: 5px;
   padding: 2rem;
   min-width: 320px;
-  box-shadow: 2px 2px 10px rbga(0, 0, 0, 0.3);
-  z-index: 10;
   margin-bottom: 100px;
 `;
 
