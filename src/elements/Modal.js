@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import { Portal } from "utilities";
+import { Portal, absolute } from "utilities";
 import Icon from "./Icon";
 import { Card } from "./Cards";
 import styled from "styled-components";
 
 const ModalWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+  ${absolute()};
   width: 100%;
   height: 100%;
   display: flex;
@@ -19,13 +17,15 @@ const ModalCard = styled(Card)`
   position: relative;
   padding: 2rem;
   min-width: 320px;
+  z-index: 10;
   margin-bottom: 100px;
 `;
 
 const CloseButton = styled.button`
-  position: absolute;
-  top: 0;
-  right: 0;
+  ${absolute({
+    y: "top",
+    x: "right"
+  })};
   border: none;
   background: transparent;
   padding: 10px;
@@ -33,9 +33,7 @@ const CloseButton = styled.button`
 `;
 
 const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+  ${absolute()};
   width: 100%;
   height: 100%;
   background: #000;
