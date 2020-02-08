@@ -1,58 +1,54 @@
-import React, { createContext, Component } from "react";
+import React from "react";
+import { Transition } from "react-spring/renderprops";
 import { Toggle } from "utilities";
-import { Modal } from "elements";
+import { Modal, Card } from "elements";
 import User from "./User";
-import { UserContext } from "./UserContext";
+import UserProvider from "./UserProvider";
 import "./App.css";
-
-class UserProvider extends Component {
-  state = {
-    id: "123",
-    name: "Scott",
-    email: "scott@leveluptuts.com"
-  };
-
-  logout = () =>
-    this.setState({
-      id: null,
-      name: "",
-      email: ""
-    });
-
-  render() {
-    return (
-      <UserContext.Provider
-        value={{
-          user: this.state,
-          logout: this.logout
-        }}
-      >
-        {this.props.children}
-      </UserContext.Provider>
-    );
-  }
-}
 
 function App() {
   return (
     <UserProvider>
       <div className="App">
-        <header className="App-header">
-          <User />
+        <header className="App-header"></header>
+        <User />
+        <Toggle>
+          {({ on, toggle }) => (
+            <>
+              <button onClick={toggle}>Login</button>
+              <Modal on={on} toggle={toggle}>
+                <h1>Hi from inside the Modal</h1>
+              </Modal>
+            </>
+          )}
+        </Toggle>
+        <section>
           <Toggle>
             {({ on, toggle }) => (
               <>
-                <button onClick={toggle}>Login</button>
-                <Modal on={on} toggle={toggle}>
-                  <h1>Hi from inside the Modal</h1>
-                </Modal>
+                <button onClick={toggle}>Show/Hide</button>
+                <Transition
+                  items={on}
+                  unique
+                  from={{ opacity: 0 }}
+                  enter={{ opacity: 1 }}
+                  leave={{ opacity: 0 }}
+                >
+                  {on => on && Heading}
+                </Transition>
               </>
             )}
           </Toggle>
-        </header>
+        </section>
       </div>
     </UserProvider>
   );
 }
+
+const Heading = styles => (
+  <Card style={{ ...styles }}>
+    <h1>Show Me</h1>
+  </Card>
+);
 
 export default App;
