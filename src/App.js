@@ -4,13 +4,16 @@ import { Toggle } from "utilities";
 import { Modal, Card } from "elements";
 import User from "./User";
 import UserProvider from "./UserProvider";
+import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
   return (
     <UserProvider>
       <div className="App">
-        <header className="App-header"></header>
+        <header className="App-header">
+          <img src={logo} alt="React Logo" style={{ height: "200px" }} />
+        </header>
         <User />
         <Toggle>
           {({ on, toggle }) => (
