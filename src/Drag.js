@@ -9,7 +9,7 @@ export default class Drag extends Component {
   render() {
     return (
       <Gesture>
-        {({ down, xDelta }) => (
+        {({ down, delta: [xDelta] }) => (
           <Spring
             native
             to={{
