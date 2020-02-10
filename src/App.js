@@ -3,6 +3,7 @@ import { Transition } from "react-spring/renderprops";
 import { Toggle } from "utilities";
 import { Modal, Card } from "elements";
 import User from "./User";
+import Drag from "./Drag";
 import UserProvider from "./UserProvider";
 import logo from "./logo.svg";
 import "./App.css";
@@ -14,7 +15,6 @@ function App() {
         <header className="App-header">
           <img src={logo} alt="React Logo" style={{ height: "200px" }} />
         </header>
-        <User />
         <Toggle>
           {({ on, toggle }) => (
             <>
@@ -25,24 +25,7 @@ function App() {
             </>
           )}
         </Toggle>
-        <section>
-          <Toggle>
-            {({ on, toggle }) => (
-              <>
-                <button onClick={toggle}>Show/Hide</button>
-                <Transition
-                  items={on}
-                  unique
-                  from={{ opacity: 0, bg: "#82d8d8", height: "0px" }}
-                  enter={{ opacity: 1, bg: "#524763", height: "200px" }}
-                  leave={{ opacity: 0, bg: "#82d8d8", height: "0px" }}
-                >
-                  {on => on && Heading}
-                </Transition>
-              </>
-            )}
-          </Toggle>
-        </section>
+        <Drag />
       </div>
     </UserProvider>
   );
