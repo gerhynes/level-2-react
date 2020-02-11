@@ -21,6 +21,14 @@ const CardContainer = styled(animated.div)`
 `;
 
 export default class Drag extends Component {
+  onUp = xDelta => () => {
+    console.log(xDelta);
+    if (xDelta < -300) {
+      alert("Remove Card");
+    } else if (xDelta > 300) {
+      alert("Accept Card");
+    }
+  };
   render() {
     return (
       <Gesture>
@@ -43,6 +51,7 @@ export default class Drag extends Component {
                 }}
               >
                 <DraggableCard
+                  onMouseUp={this.onUp(xDelta)}
                   style={{
                     opacity: x.interpolate({
                       range: [-300, -20],

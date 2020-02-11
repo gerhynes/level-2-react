@@ -12,3 +12,19 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+button {
+  display: inline-block;
+  background-color: #60d9fb;
+  padding: 10px 25px;
+  border: none;
+  margin: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 200ms ease-out;
+}
+
+button:hover,
+button:active {
+  background-color: #60d9fb80;
+}
