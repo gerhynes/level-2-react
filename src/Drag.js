@@ -52,6 +52,7 @@ export default class Drag extends Component {
               >
                 <DraggableCard
                   onMouseUp={this.onUp(xDelta)}
+                  onTouchEnd={this.onUp(xDelta)}
                   style={{
                     opacity: x.interpolate({
                       range: [-300, -20],
